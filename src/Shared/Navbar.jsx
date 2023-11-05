@@ -3,11 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
 
     const Links = [
-        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 px-3 md:px-5 lg:px-4 font-bold text-xs md:text-sm rounded `} to="/" >HOME</NavLink>,
-        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 px-3 md:px-5 lg:px-4 font-bold text-xs md:text-sm rounded `} to="/all-jobs" >ALL JOBS</NavLink>,
-        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 px-3 md:px-5 lg:px-4 font-bold text-xs md:text-sm  rounded`} to="/about" >ABOUT</NavLink>,
-        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 px-3 md:px-5 lg:px-4 font-bold text-xs md:text-sm  rounded`} to="/add-product" >ADD PRODUCT</NavLink>,
-        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 px-3 md:px-5 lg:px-4 font-bold text-xs md:text-sm  rounded`} to="/collection" >CART</NavLink>,
+        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded `} to="/" >HOME</NavLink>,
+        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded `} to="/all-jobs" >ALL JOBS</NavLink>,
+        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/add-job" >ADD JOB</NavLink>,
+        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/collection" >MY JOB</NavLink>,
+        <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/applied-jobs" >APPLIED JOBS</NavLink>,
 
     ]
     return (
