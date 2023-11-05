@@ -1,12 +1,48 @@
 import { Link } from "react-router-dom";
 import { BsGoogle } from "react-icons/bs"
+import { useContext } from "react";
+import { AuthContext } from "../Providers/Authentication";
+import { toast } from "react-toastify";
 const Login = () => {
+    const {LoginAccount, GoogleLogin} = useContext(AuthContext);
     const handleLogin = e => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const pass = form.pass.value;
-        console.log(`the email is ${email}    &&& The Password is ${pass}`);
+        LoginAccount(email, pass)
+            .then(res => {
+                if (res) {
+                    toast.success('Login successful! You now have access. 🎉😊', {
+                        position: "top-center"
+                    })
+                    form.reset();
+                }
+            })
+            .catch(err => {
+                if (err.message == 'Firebase: Error (auth/network-request-failed).') {
+                    toast.error('Your Network Connection is Too Slow!')
+                }
+                else {
+                    toast.error(err.message, {
+                        position: "top-center"
+                    })
+
+                }
+            })
+    }
+    const handleGGLLoigin = () => {
+        GoogleLogin()
+            .then(res => {
+                if (res) {
+                    toast.success('Login successful! You now have access. 🎉😊', {
+                        position: "top-center"
+                    })
+                }
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
     }
     return (
         <>
@@ -48,7 +84,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className="form-control mt-6">
-                            <button className=" btn-border py-2 md:py-3 px-3 md:px-6 lg:px-9 text-design font-bold text-xs md:text-sm  rounded flex items-center justify-center gap-2"><BsGoogle className="text-teal-400 text-lg"></BsGoogle>GOOGLE</button>
+                            <button onClick={handleGGLLoigin} className=" btn-border py-2 md:py-3 px-3 md:px-6 lg:px-9 text-design font-bold text-xs md:text-sm  rounded flex items-center justify-center gap-2"><BsGoogle className="text-teal-400 text-lg"></BsGoogle>GOOGLE</button>
                         </div>
                     </div>
                 </div>
