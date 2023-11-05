@@ -1,13 +1,73 @@
 import { Link } from "react-router-dom";
 import { BsGoogle } from "react-icons/bs"
+import { useContext } from "react";
+import { AuthContext } from "../Providers/Authentication";
+import { toast } from "react-toastify";
 
 const Register = () => {
+
+    const { CreateAccount, updatingProfile, GoogleLogin } = useContext(AuthContext);
+
+    const SpCrtrRgx = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-]/;
+    const CpLetterRgx = /^(?=.*[A-Z]).+$/;
+
     const handleRegister = e => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const pass = form.pass.value;
-        console.log(`the email is ${email}    &&& The Password is ${pass}`);
+        const photo = form.photo.value;
+        const name = form.name.value;
+        if (pass.length < 6) {
+            toast.error('The password is less than 6 characters', {
+                position: 'top-center'
+            })
+            return;
+        }
+        if (!CpLetterRgx.test(pass)) {
+            toast.error("The password don't have a capital letter", {
+                position: 'top-center'
+            })
+            return;
+        }
+
+        if (!SpCrtrRgx.test(pass)) {
+            toast.error("The password don't have a special character", {
+                position: 'top-center'
+            })
+            return;
+        }
+        CreateAccount(email, pass)
+            .then(res => {
+                if (res.user.email) {
+                    updatingProfile(res, name, photo)
+                    toast.success('Congratulations ! Registration completed Successfully ! 🤩💕')
+                    form.reset();
+                }
+            })
+            .catch(err => {
+                if (err.message == "Firebase: Error (auth/email-already-in-use).") {
+                    toast.error("The Email already in use")
+                }
+                else {
+                    toast.error(err.message);
+                }
+            })
+
+    }
+
+    const handleGGLLoigin = () => {
+        GoogleLogin()
+            .then(res => {
+                if (res) {
+                    toast.success('Login successful! You now have access. 🎉😊', {
+                        position: "top-center"
+                    })
+                }
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
     }
     return (
         <>
@@ -61,7 +121,7 @@ const Register = () => {
                             </div>
                         </form>
                         <div className="form-control mt-6">
-                            <button className=" btn-border py-2 md:py-3 px-3 md:px-6 lg:px-9 text-design font-bold text-xs md:text-sm  rounded flex items-center justify-center gap-2"><BsGoogle className="text-teal-400 text-lg"></BsGoogle>GOOGLE</button>
+                            <button onClick={handleGGLLoigin} className=" btn-border py-2 md:py-3 px-3 md:px-6 lg:px-9 text-design font-bold text-xs md:text-sm  rounded flex items-center justify-center gap-2"><BsGoogle className="text-teal-400 text-lg"></BsGoogle>GOOGLE</button>
                         </div>
                     </div>
                 </div>
