@@ -33,7 +33,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <h1 className="btn btn-ghost normal-case text-sm md:text-base lg:text-lg xl:text-xl flex items-center gap-2 font-bold"><img className=" h-8 md:h-full" src="https://i.ibb.co/XpCSfxY/image-removebg-preview.png" alt="" />JOB CRACKERS</h1>
+                    <h1 className="btn btn-ghost normal-case text-sm md:text-base lg:text-lg xl:text-xl flex items-center gap-2 font-bold"><img className=" h-8 md:h-full" src="https://i.ibb.co/XpCSfxY/image-removebg-preview.png" alt="" />JOB CRACKER</h1>
                 </div>
                 <div className="navbar-end">
                     <div className="dropdown dropdown-end">
@@ -53,9 +53,9 @@ const Navbar = () => {
                             <li><Link>Logout</Link></li>
                         </ul>
                     </div>
-                    <div className="">
+                    <Link to='/login'>
                         <button className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-3 px-3 md:px-6 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">LOGIN</button>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </>

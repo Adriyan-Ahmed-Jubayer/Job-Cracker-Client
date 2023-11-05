@@ -1,0 +1,59 @@
+.text-design {
+    background: linear-gradient(90deg,#19D3AE, #0FCFEC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.card-title-design:hover {
+    background: linear-gradient(90deg, #A855F7, #3B82F6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: 300ms ease;
+}
+
+.btn-border {
+    border-image: linear-gradient(90deg,#19D3AE, #0FCFEC);
+    border-image-slice: 1; 
+    border-image-width: 3px;
+}
+
+.notched {
+    position:relative;
+    overflow:hidden;
+    clip-path: polygon(
+    0 40%,
+    15% 0,
+    90% 0,
+    100% 0%,
+    100% 100%,
+    100% 100%,
+    0% 100%,
+    0% 90%,
+    0% 10%
+  )
+}
+
+.card-shadow {
+    box-shadow: 0 0 10px 5px #3B82F6;
+}
+
+.btn-shadow {
+    box-shadow: 0 0 5px 2px #19D3AE;
+}
+
+.btn-notched {
+    position:relative;
+    overflow:hidden;
+    clip-path: polygon(
+    0 40%,
+    15% 0,
+    90% 0,
+    100% 0%,
+    100% 100%,
+    100% 100%,
+    0% 100%,
+    0% 90%,
+    0% 10%
+  )
+}
