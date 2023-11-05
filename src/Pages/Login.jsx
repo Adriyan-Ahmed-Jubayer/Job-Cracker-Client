@@ -40,7 +40,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-3 px-3 md:px-6 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">LOGIN</button>
                             </div>
-                            <h3 className="text-center">Don't Have an Accout ? <Link className="text-design font-bold" to='/register'>REGISTER </Link> </h3>
+                            <h3 className="text-center mt-2">Don't Have an Accout ? <Link className="text-design font-bold" to='/register'>REGISTER </Link> </h3>
                             <div className="flex items-center gap-2 mt-3">
                                 <div className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE] h-1 w-full"></div>
                                 <h5>OR</h5>
