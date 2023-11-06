@@ -18,13 +18,6 @@ const AllJobs = () => {
     useEffect(() => {
         axios.get(url).then(res => setJobs(res.data))
     }, [searchedValue, url])
-
-    if (Jobs.length) {
-        console.log(true);
-    }
-    if (!Jobs.length) {
-        console.log(false);
-    }
     return (
         <>
             <section className="mb-[40px] md:mb-[80px] lg:mb-[130px]">

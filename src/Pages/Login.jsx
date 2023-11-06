@@ -1,10 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsGoogle } from "react-icons/bs"
 import { useContext } from "react";
 import { AuthContext } from "../Providers/Authentication";
 import { toast } from "react-toastify";
 const Login = () => {
     const {LoginAccount, GoogleLogin} = useContext(AuthContext);
+
+    const Location = useLocation();
+
+    const navigation = useNavigate();
+
+    const navigate = () => {
+        console.log(Location.state);
+         navigation(Location?.state ? Location.state : "/" )
+    }
+
+
     const handleLogin = e => {
         e.preventDefault()
         const form = e.target;
@@ -17,6 +28,7 @@ const Login = () => {
                         position: "top-center"
                     })
                     form.reset();
+                    navigate();
                 }
             })
             .catch(err => {

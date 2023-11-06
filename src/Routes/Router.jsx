@@ -6,6 +6,8 @@ import Register from "../Pages/Register";
 import AllJobs from "../Pages/AllJobs";
 import axios from "axios";
 import JobDetails from "../Pages/JobDetails";
+import Protection from "../Protection/Protection";
+import AddJob from "../Pages/AddJob";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,8 +30,12 @@ const router = createBrowserRouter([
           element: <Register></Register>
         },
         {
+          path: "/add-job",
+          element: <Protection><AddJob></AddJob></Protection>,
+        },
+        {
           path: "/job/:id",
-          element: <JobDetails></JobDetails>,
+          element: <Protection><JobDetails></JobDetails></Protection>,
           loader: ({params}) => axios.get(`http://localhost:5000/api/v1/job/${params.id}`)
           
         },

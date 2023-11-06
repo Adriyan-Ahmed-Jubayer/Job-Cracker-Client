@@ -96,9 +96,6 @@ const JobDetails = () => {
                     </div>
                 </div>
             </section>
-
-
-            <button className="btn">open modal</button>
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                     <form method="dialog" className="space-y-4">
