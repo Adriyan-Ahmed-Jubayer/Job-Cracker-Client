@@ -3,7 +3,7 @@ const Footer = () => {
         <>
             <section className="footer p-10 bg-base-200 text-base-content">
                 <aside>
-                    <h1 className="btn normal-case text-xl flex items-center gap-2 font-bold"><img className="h-full" src="https://i.ibb.co/XpCSfxY/image-removebg-preview.png" alt="" />JOB CRACKERS</h1>
+                    <h1 className="btn normal-case text-xl flex items-center gap-2 font-bold"><img className="h-full" src="https://i.ibb.co/XpCSfxY/image-removebg-preview.png" alt="" />JOB CRACKER</h1>
                 </aside>
                 <nav>
                     <header className="footer-title font-bold">Contact</header>

@@ -34,12 +34,22 @@
   )
 }
 
-.card-shadow {
-    box-shadow: 0 0 10px 5px #3B82F6;
-}
-
-.btn-shadow {
-    box-shadow: 0 0 5px 2px #19D3AE;
+@media (min-width: 768px) {
+    .card-notched {
+        position:relative;
+        overflow:hidden;
+        clip-path: polygon(
+        0 0%,
+        15% 0,
+        90% 0,
+        95% 0%,
+        100% 30%,
+        100% 100%,
+        0% 100%,
+        0% 90%,
+        0% 10%
+      )
+    }
 }
 
 .btn-notched {
