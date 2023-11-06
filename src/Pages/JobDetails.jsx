@@ -2,13 +2,37 @@ import { useLoaderData } from "react-router-dom";
 import { FaSackDollar } from "react-icons/fa6"
 import { BsPerson, BsFillPersonPlusFill } from 'react-icons/bs';
 import { AiOutlineCalendar } from 'react-icons/ai';
-import { TbListDetails } from 'react-icons/tb';
 import { ImCross } from 'react-icons/im';
 import { BiCategoryAlt } from 'react-icons/bi';
+import { useContext } from "react";
+import { AuthContext } from "../Providers/Authentication";
+import { toast } from "react-toastify";
 
 const JobDetails = () => {
     const Job = useLoaderData();
     const { _id, Company, CompanyLogo, Title, UserName, Category, SalaryRange, Description, PostDate, Deadline, ApplicantsNumber, Banner } = Job.data;
+    const {User} = useContext(AuthContext);
+
+    const handleApply = (Deadline) => {
+        const currentDate = Date.now()
+        const deadline = new Date(Deadline).getTime();
+        
+        if(currentDate > deadline){
+            toast.error('The deadline for this job has passed. You cannot apply', {
+                position: "top-center"
+            })
+            return;
+        }
+        if(User.email === Job.data.PosterEmail){
+            toast.error('Employers cannot apply for their own jobs.', {
+                position: "top-center"
+            })
+            return;
+        }
+        if(deadline > currentDate){
+            document.getElementById('my_modal_1').showModal();
+        }
+    }
     return (
         <>
             <section className="container mx-auto mb-[40px] md:mb-[80px] lg:mb-[130px]">
@@ -65,13 +89,43 @@ const JobDetails = () => {
                                     </div>
                                 </abbr>
                                 <div className="flex items-center gap-3">
-                                    <button className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-9 md:px-8 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">Apply</button>
+                                    <button onClick={() => handleApply(Deadline)} className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-9 md:px-8 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">Apply</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
+            <button className="btn">open modal</button>
+            <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                    <form method="dialog" className="space-y-4">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name="name" placeholder="Enter Your Name" className="input input-bordered" required defaultValue={User?.displayName} />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">E-mail</span>
+                            </label>
+                            <input type="email" name="email" placeholder="Enter Your E-mail" className="input input-bordered" defaultValue={User?.email} required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Resume</span>
+                            </label>
+                            <input type="text" name="resume" placeholder="Enter Your Resume URL" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <button className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-9 w-full md:px-8 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">Apply</button>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
         </>
     );
 };

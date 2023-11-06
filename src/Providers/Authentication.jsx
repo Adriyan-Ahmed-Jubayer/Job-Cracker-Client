@@ -41,7 +41,9 @@ const Authentication = ({ children }) => {
             if(userAccount){
                 const userEmail = {email : userAccount.email };
                 axios.post('http://localhost:5000/jwt', userEmail, {withCredentials: true})
-                .then(res => console.log(res.data))
+                .then(res => {
+                    console.log(res.data);
+                })
             }
         });
         return () => {
