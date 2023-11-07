@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Job from "../Components/Jobs/Job";
+import { Circles } from  'react-loader-spinner'
 
 const AllJobs = () => {
     const [Jobs, setJobs] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const [searchedValue, setSearchedValue] = useState(null)
 
@@ -16,7 +18,11 @@ const AllJobs = () => {
     const url = searchedValue ? `http://localhost:5000/api/v1/jobs-collection?title=${searchedValue}` : 'http://localhost:5000/api/v1/jobs-collection'
 
     useEffect(() => {
-        axios.get(url).then(res => setJobs(res.data))
+        setLoading(true);
+        axios.get(url).then(res => {
+            setJobs(res.data)
+            setLoading(false);
+        })
     }, [searchedValue, url])
     return (
         <>
@@ -32,15 +38,31 @@ const AllJobs = () => {
             </section>
             <section className=" mx-4 md:mx-10 mb-[40px] md:mb-[80px] lg:mb-[130px]">
                 {
+                    loading && <div className="flex justify-center text-purple-600 items-center min-h-screen">
+                    <Circles
+                        height="80"
+                        width="80"
+                        color="#0FCFEC"
+                        ariaLabel="circles-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                    />
+                </div>
+                }
+                {
                     Jobs.length ?
                         <div className="space-y-6">
                             {
                                 Jobs.map(job => <Job key={job._id} job={job} ></Job>)
                             }
                         </div>
-                        : <div className="min-h-screen flex items-center justify-center">
-                            <img className="w-full" src="https://i.ibb.co/k0S5J1q/no-data-concept-illustration-114360-616-removebg-preview.png" alt="" />
-                        </div>
+                        : <></>
+                }
+                {
+                    !Jobs.length && <div className="min-h-screen flex items-center justify-center">
+                        <img className="w-full" src="https://i.ibb.co/k0S5J1q/no-data-concept-illustration-114360-616-removebg-preview.png" alt="" />
+                    </div>
                 }
             </section>
         </>

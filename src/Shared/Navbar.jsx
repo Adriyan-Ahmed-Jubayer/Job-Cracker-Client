@@ -27,9 +27,9 @@ const Navbar = () => {
                             }
                             {
                                 User ? <>
-                                    <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/add-job" >ADD JOB</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/collection" >MY JOB</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/applied-jobs" >APPLIED JOBS</NavLink>
+                                    <li><NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/add-job" >ADD JOB</NavLink></li>
+                                    <li><NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/collection" >MY JOB</NavLink></li>
+                                    <li><NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/applied-jobs" >APPLIED JOBS</NavLink></li>
                                 </> : <></>
                             }
                         </ul>
@@ -41,9 +41,9 @@ const Navbar = () => {
                             }
                             {
                                 User ? <>
-                                    <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/add-job" >ADD JOB</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/collection" >MY JOB</NavLink>
-                                    <NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/applied-jobs" >APPLIED JOBS</NavLink>
+                                    <li className="list-none"><NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/add-job" >ADD JOB</NavLink></li>
+                                    <li className="list-none"><NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/collection" >MY JOB</NavLink></li>
+                                    <li className="list-none"><NavLink className={({ isActive }) => isActive ? `bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-2 md:py-2.5 px-3 md:px-5 lg:px-5 text-white font-bold text-xs md:text-sm  rounded` : `bg-transparent py-2 md:py-2 md:px-2 font-bold text-xs md:text-sm  rounded`} to="/applied-jobs" >APPLIED JOBS</NavLink></li>
                                 </> : <></>
                             }
                         </nav>

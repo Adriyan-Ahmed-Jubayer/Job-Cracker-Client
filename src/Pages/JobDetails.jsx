@@ -33,6 +33,28 @@ const JobDetails = () => {
             document.getElementById('my_modal_1').showModal();
         }
     }
+
+    const handleSubmit = (e) => {
+        const ApplierName = e.target.name.value;
+        const ApplierEmail = e.target.email.value;
+        const ApplierResume = e.target.resume.value;
+        const AppliedJob = {...Job.data, ApplierName, ApplierEmail, ApplierResume};
+        delete AppliedJob._id;
+        fetch('http://localhost:5000/api/v1/application',{
+            method: "POST",
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(AppliedJob)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data){
+                toast.success('Your Application Submited Successfully')
+            }
+        })
+
+    }
     return (
         <>
             <section className="container mx-auto mb-[40px] md:mb-[80px] lg:mb-[130px]">
@@ -98,7 +120,7 @@ const JobDetails = () => {
             </section>
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
-                    <form method="dialog" className="space-y-4">
+                    <form onSubmit={handleSubmit} method="dialog" className="space-y-4">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -118,7 +140,7 @@ const JobDetails = () => {
                             <input type="text" name="resume" placeholder="Enter Your Resume URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
-                            <button className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-9 w-full md:px-8 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">Apply</button>
+                            <button className="bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-9 w-full md:px-8 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">SUBMIT</button>
                         </div>
                     </form>
                 </div>

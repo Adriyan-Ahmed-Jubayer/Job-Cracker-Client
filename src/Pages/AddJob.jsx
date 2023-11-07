@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/Authentication";
-import axios from "axios";
+import { toast } from "react-toastify";
 
 const AddJob = () => {
     const { User } = useContext(AuthContext);
@@ -11,8 +10,8 @@ const AddJob = () => {
     const handleAddJob = e => {
         e.preventDefault();
         const form = e.target;
-        const Company = form.Company.value;
-        const CompanyLogo = form.CompanyLogo.value;
+        const Company = User?.displayName;
+        const CompanyLogo = User?.photoURL;
         const PosterEmail = User?.email;
         const PosterPhoto = User?.photoURL;
         const Title = form.Title.value;
@@ -34,7 +33,11 @@ const AddJob = () => {
             body: JSON.stringify(Job)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            if(data){
+                toast.success('Your Job Added Successfully ')
+            }
+        })
     }
     return (
         <>
@@ -48,18 +51,6 @@ const AddJob = () => {
                 <div className="">
                     <div className="bg-teal-500 bg-opacity-25 px-5 md:p-10 py-5 text-center rounded-[5px] mx-4 xl:mx-0">
                         <form onSubmit={handleAddJob} className='grid grid-cols-1 lg:grid-cols-3 items-center justify-between gap-6'>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="text-xs md:text-base font-semibold ">Company Name</span>
-                                </label>
-                                <input type="text" placeholder="Enter Company Name ..." className="input input-bordered text-sm md:text-base" name='Company' required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="text-xs md:text-base font-semibold ">Company Logo</span>
-                                </label>
-                                <input type="text" placeholder="Enter Company Logo URL ..." className="input input-bordered text-sm md:text-base" name='CompanyLogo' required />
-                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Job Title</span>
@@ -85,12 +76,19 @@ const AddJob = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
+                                    <span className="text-xs md:text-base font-semibold ">Posting Date</span>
+                                </label>
+                                <input type="date" placeholder="Enter Job Posting Date ..." className="input input-bordered text-sm md:text-base " name='PostDate' required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className="text-xs md:text-base font-semibold  ">Dead Line</span>
                                 </label>
                                 <div className="">
                                     <DatePicker
                                         selected={dateOfDeadline}
                                         onChange={(date) => setDateOfDeadline(date)}
+                                        placeholderText="Enter Job's Circular's Deadline"
                                         dateFormat="yyyy-MM-dd"
                                         name="Deadline"
                                         className="input input-bordered text-sm md:text-base col-span-1 w-full"
@@ -100,22 +98,17 @@ const AddJob = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="text-xs md:text-base font-semibold ">Banner Image</span>
-                                </label>
-                                <input type="text" placeholder="Enter Banner Image ..." className="input input-bordered text-sm md:text-base " name='Banner' required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="text-xs md:text-base font-semibold ">Posting Date</span>
-                                </label>
-                                <input type="date" placeholder="Enter Job Posting Date ..." className="input input-bordered text-sm md:text-base " name='PostDate' required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Applicants Number</span>
                                 </label>
                                 <input type="text" defaultValue={0} placeholder="Enter Your Job's Applicants Number ..." className="input input-bordered text-sm md:text-base " name='ApplicantsNumber' required />
                             </div>
+                            <div className="form-control lg:col-span-3">
+                                <label className="label">
+                                    <span className="text-xs md:text-base font-semibold ">Banner Image</span>
+                                </label>
+                                <input type="text" placeholder="Enter Banner Image ..." className="input input-bordered text-sm md:text-base " name='Banner' required />
+                            </div>
+                            
                             <div className="form-control lg:col-span-3">
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold">Job Description</span>

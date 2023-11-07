@@ -8,10 +8,13 @@ import axios from "axios";
 import JobDetails from "../Pages/JobDetails";
 import Protection from "../Protection/Protection";
 import AddJob from "../Pages/AddJob";
+import MyJobs from "../Pages/MyJobs";
+import Error from "../Pages/Error";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <Error></Error>,
     children: [
         {
             path: "/",
@@ -32,6 +35,10 @@ const router = createBrowserRouter([
         {
           path: "/add-job",
           element: <Protection><AddJob></AddJob></Protection>,
+        },
+        {
+          path: "/collection",
+          element: <Protection><MyJobs></MyJobs></Protection>,
         },
         {
           path: "/job/:id",
