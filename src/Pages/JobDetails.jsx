@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { FaSackDollar } from "react-icons/fa6"
 import { BsPerson, BsFillPersonPlusFill } from 'react-icons/bs';
 import { AiOutlineCalendar } from 'react-icons/ai';
@@ -7,52 +7,78 @@ import { BiCategoryAlt } from 'react-icons/bi';
 import { useContext } from "react";
 import { AuthContext } from "../Providers/Authentication";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 const JobDetails = () => {
-    const Job = useLoaderData();
-    const { _id, Company, CompanyLogo, Title, UserName, Category, SalaryRange, Description, PostDate, Deadline, ApplicantsNumber, Banner } = Job.data;
-    const {User} = useContext(AuthContext);
+    const [Job, setJob] = useState({})
+    const {id} = useParams()
+    useEffect(() => {
+        axios.get(`http://localhost:5000/api/v1/job/${id}`)
+        .then(res => setJob(res.data))
+    }, [Job])
+
+    const { _id, Company, CompanyLogo, Title, UserName, Category, SalaryRange, Description, PostDate, Deadline, ApplicantsNumber, Banner } = Job;
+    const { User } = useContext(AuthContext);
 
     const handleApply = (Deadline) => {
         const currentDate = Date.now()
         const deadline = new Date(Deadline).getTime();
-        
-        if(currentDate > deadline){
+
+        if (currentDate > deadline) {
             toast.error('The deadline for this job has passed. You cannot apply', {
                 position: "top-center"
             })
             return;
         }
-        if(User.email === Job.data.PosterEmail){
+        if (User.email === Job.PosterEmail) {
             toast.error('Employers cannot apply for their own jobs.', {
                 position: "top-center"
             })
             return;
         }
-        if(deadline > currentDate){
+        if (deadline > currentDate) {
             document.getElementById('my_modal_1').showModal();
         }
     }
 
     const handleSubmit = (e) => {
+        
         const ApplierName = e.target.name.value;
         const ApplierEmail = e.target.email.value;
         const ApplierResume = e.target.resume.value;
-        const AppliedJob = {...Job.data, ApplierName, ApplierEmail, ApplierResume};
+        const AppliedJob = { ...Job.data, ApplierName, ApplierEmail, ApplierResume };
         delete AppliedJob._id;
-        fetch('http://localhost:5000/api/v1/application',{
+        fetch('http://localhost:5000/api/v1/application', {
             method: "POST",
             headers: {
-                'content-type':'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(AppliedJob)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data){
-                toast.success('Your Application Submited Successfully')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.insertedId) {
+                    
+                    fetch(`http://localhost:5000/api/v2/job?id=${_id}`, {
+                        method: "PUT",
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({$inc: {ApplicantsNumber: 1 }})
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log('Data Updated', data);
+                            if(data.modifiedCount > 0){
+                                toast.success('Your Application Submited Successfully')
+                            }
+                        })
+                }
+
+            })
 
     }
     return (

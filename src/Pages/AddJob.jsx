@@ -21,7 +21,7 @@ const AddJob = () => {
         const Description = form.Description.value;
         const PostDate = form.PostDate.value;
         const Deadline = form.Deadline.value;
-        const ApplicantsNumber = form.ApplicantsNumber.value;
+        const ApplicantsNumber = +form.ApplicantsNumber.value;
         const Banner = form.Banner.value;
         const Job = { Company, CompanyLogo, PosterEmail, PosterPhoto, Title, UserName, Category, SalaryRange, Description, PostDate, Deadline, ApplicantsNumber, Banner }
         console.log(Job);

@@ -43,7 +43,6 @@ const router = createBrowserRouter([
         {
           path: "/job/:id",
           element: <Protection><JobDetails></JobDetails></Protection>,
-          loader: ({params}) => axios.get(`http://localhost:5000/api/v1/job/${params.id}`)
           
         },
     ]
