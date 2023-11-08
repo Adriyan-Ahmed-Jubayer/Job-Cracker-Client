@@ -10,6 +10,8 @@ import Protection from "../Protection/Protection";
 import AddJob from "../Pages/AddJob";
 import MyJobs from "../Pages/MyJobs";
 import Error from "../Pages/Error";
+import Update from "../Pages/Update";
+import AppliedJobs from "../Pages/AppliedJobs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,7 +45,14 @@ const router = createBrowserRouter([
         {
           path: "/job/:id",
           element: <Protection><JobDetails></JobDetails></Protection>,
-          
+        },
+        {
+          path: "/update-job/:id",
+          element: <Protection><Update></Update></Protection>,
+        },
+        {
+          path: "/applied-jobs",
+          element: <Protection><AppliedJobs></AppliedJobs></Protection>,
         },
     ]
   },

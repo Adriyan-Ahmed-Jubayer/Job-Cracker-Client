@@ -11,10 +11,11 @@ const MyJobs = () => {
     const [loading, setLoading] = useState(true)
     const [Jobs, setJobs] = useState([]);
     useEffect(() => {
-        setLoading(true)
-        axios.get(`http://localhost:5000/api/v1/collection?email=${User?.email}`)
-            .then(res => setJobs(res.data))
-        setLoading(false)
+        setTimeout(() => {
+            axios.get(`http://localhost:5000/api/v1/collection?email=${User?.email}`)
+                .then(res => setJobs(res.data))
+            setLoading(false)
+        }, 1000);
     }, [Jobs]);
     const handleDelete = (id) => {
         Swal.fire({
@@ -46,8 +47,8 @@ const MyJobs = () => {
     }
     return (
         <>
-            <div className="my-[40px] md:my-[80px] lg:my-[130px]">
-                <ul className="grid grid-cols-9 place-items-center text-[12px] py-4 bg-teal-500 bg-opacity-25 rounded-tr-2xl rounded-tl-2xl">
+            <div className="my-[40px] md:my-[80px] lg:my-[130px] shadow-2xl font-bold">
+                <ul className="grid grid-cols-9 place-items-center text-[12px] py-4 bg-[#E6E6E6] rounded-tr-xl rounded-tl-xl">
                     <li>Job Title</li>
                     <li>Posted by</li>
                     <li>Category</li>
@@ -60,7 +61,7 @@ const MyJobs = () => {
                 </ul>
                 <div className="">
                     {
-                        loading && <div className="flex justify-center text-purple-600 items-center min-h-screen">
+                        loading && <div className="flex justify-center items-center min-h-screen">
                             <Circles
                                 height="80"
                                 width="80"
@@ -74,7 +75,7 @@ const MyJobs = () => {
                     }
                     {
                         Jobs.map(job => {
-                            return <ul key={job._id} className="grid grid-cols-9 place-items-center text-[12px] py-4 bg-gray-500 bg-opacity-25 border-teal-200 border-2 ">
+                            return <ul key={job._id} className="grid grid-cols-9 place-items-center text-[12px] py-4 border-teal-200 border ">
                                 <li>{job.Title}</li>
                                 <li>{job.UserName}</li>
                                 <li>{job.Category}</li>
