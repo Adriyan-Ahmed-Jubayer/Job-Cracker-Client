@@ -16,7 +16,7 @@ const AllJobs = () => {
         setSearchedValue(value)
     }
 
-    const url = searchedValue ? `http://localhost:5000/api/v1/jobs-collection?title=${searchedValue}` : 'http://localhost:5000/api/v1/jobs-collection'
+    const url = searchedValue ? `https://job-cracker.vercel.app/api/v1/jobs-collection?title=${searchedValue}` : 'https://job-cracker.vercel.app/api/v1/jobs-collection'
 
     useEffect(() => {
         setLoading(true);

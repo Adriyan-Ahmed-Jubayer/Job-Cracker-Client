@@ -40,7 +40,7 @@ const Authentication = ({ children }) => {
             setIsLoading(false)  
             if(userAccount){
                 const userEmail = {email : userAccount.email };
-                axios.post('http://localhost:5000/jwt', userEmail, {withCredentials: true})
+                axios.post('https://job-cracker.vercel.app/jwt', userEmail, {withCredentials: true})
                 .then(res => {
                     console.log(res.data);
                 })

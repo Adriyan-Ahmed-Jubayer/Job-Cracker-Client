@@ -13,7 +13,7 @@ const MyJobs = () => {
     const [Jobs, setJobs] = useState([]);
     useEffect(() => {
         setTimeout(() => {
-            axios.get(`http://localhost:5000/api/v1/collection?email=${User?.email}`)
+            axios.get(`https://job-cracker.vercel.app/api/v1/collection?email=${User?.email}`)
                 .then(res => setJobs(res.data))
             setLoading(false)
         }, 1000);
@@ -29,7 +29,7 @@ const MyJobs = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/api/v1/collection/${id}`, {
+                fetch(`https://job-cracker.vercel.app/api/v1/collection/${id}`, {
                     method: "DELETE"
                 })
                 .then(res => res.json())

@@ -13,7 +13,7 @@ const Update = () => {
     const {User} = useContext(AuthContext);
     const {id} = useParams();
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/job/${id}`)
+        axios.get(`https://job-cracker.vercel.app/api/v1/job/${id}`)
         .then(res => setJob(res.data))
     }, [])
     const {
@@ -46,7 +46,7 @@ const Update = () => {
         const banner = form.Banner.value;
         const Job = { company, companyLogo,  posterEmail, posterPhoto, title, userName,  category, salaryRange, description,  postDate, deadline, applicantsNumber, banner };
         console.log(Job);
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://job-cracker.vercel.app/update/${id}`, {
             method: "PUT",
             headers: {
                 'content-type':'application/json'
