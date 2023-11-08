@@ -44,13 +44,14 @@ const Login = () => {
                 }
             })
     }
-    const handleGGLLoigin = () => {
+    const handleGGLLogin = () => {
         GoogleLogin()
             .then(res => {
                 if (res) {
                     toast.success('Login successful! You now have access. 🎉😊', {
                         position: "top-center"
                     })
+                    navigate();
                 }
             })
             .catch(err => {
@@ -100,7 +101,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className="form-control mt-6">
-                            <button onClick={handleGGLLoigin} className=" btn-border py-2 md:py-3 px-3 md:px-6 lg:px-9 text-design font-bold text-xs md:text-sm  rounded flex items-center justify-center gap-2"><BsGoogle className="text-teal-400 text-lg"></BsGoogle>GOOGLE</button>
+                            <button onClick={handleGGLLogin} className=" btn-border py-2 md:py-3 px-3 md:px-6 lg:px-9 text-design font-bold text-xs md:text-sm  rounded flex items-center justify-center gap-2"><BsGoogle className="text-teal-400 text-lg"></BsGoogle>GOOGLE</button>
                         </div>
                     </div>
                 </div>

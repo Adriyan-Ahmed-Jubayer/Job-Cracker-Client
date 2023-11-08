@@ -58,6 +58,9 @@ const Update = () => {
             if(data.modifiedCount > 0){
                 toast.success('Your Job Updated Successfully')
             }
+            else{
+                toast.warn('Please Make a Change Then Press The Update Button')
+            }
         })
     }
     return (
@@ -142,7 +145,7 @@ const Update = () => {
                                 </label>
                                 <textarea defaultValue={Description} name="Description" className="lg:col-span-2 text-[10px] md:text-base lg:text-lg py-2 md:py-4 rounded-lg px-6" rows="8" placeholder="Try To Add Atleast 400 Character"></textarea>
                             </div>
-                            <button className=" lg:col-span-3 bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-3 md:px-6 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">ADD JOB</button>
+                            <button className=" lg:col-span-3 bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-3 md:px-6 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">UPDATE JOB</button>
                         </form>
                     </div>
                 </div>

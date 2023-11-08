@@ -40,7 +40,7 @@ const AppliedJobs = () => {
             .then(res => setJobs(res.data))
 
             setLoading(false)
-        }, 1000);
+        });
        
     }, [selectedCategory])
     return (
@@ -85,7 +85,7 @@ const AppliedJobs = () => {
                     }
                     {
                         Jobs.map(job => {
-                            return <ul key={job._id} className="grid grid-cols-4 place-items-center text-[12px] py-4 border-teal-200 border ">
+                            return <ul key={job._id} onClick={() => console.log(job)} className="grid grid-cols-4 place-items-center text-[12px] py-4 border-teal-200 border ">
                                 <li>{job.Title}</li>
                                 <li>{job.ApplierName}</li>
                                 <li>{job.ApplierEmail}</li>

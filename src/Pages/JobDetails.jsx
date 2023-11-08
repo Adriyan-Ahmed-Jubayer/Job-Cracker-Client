@@ -47,6 +47,7 @@ const JobDetails = () => {
         }
     }
 
+    console.log();
     const handleSubmit = (e) => {
         
         emailjs.sendForm('service_fjwmtwy', 'template_28viznu', form.current, 'waJ9Yf5ojORw9LwV5')
@@ -58,7 +59,7 @@ const JobDetails = () => {
         const ApplierName = e.target.name.value;
         const ApplierEmail = e.target.email.value;
         const ApplierResume = e.target.resume.value;
-        const AppliedJob = { ...Job.data, ApplierName, ApplierEmail, ApplierResume };
+        const AppliedJob = { ...Job, ApplierName, ApplierEmail, ApplierResume };
         delete AppliedJob._id;
         fetch('http://localhost:5000/api/v1/application', {
             method: "POST",
@@ -71,7 +72,6 @@ const JobDetails = () => {
             .then(data => {
 
                 if (data.insertedId) {
-                    
                     fetch(`http://localhost:5000/api/v2/job?id=${_id}`, {
                         method: "PUT",
                         headers: {

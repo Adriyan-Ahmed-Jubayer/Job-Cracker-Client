@@ -12,6 +12,7 @@ import MyJobs from "../Pages/MyJobs";
 import Error from "../Pages/Error";
 import Update from "../Pages/Update";
 import AppliedJobs from "../Pages/AppliedJobs";
+import Blog from "../Pages/Blog";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>
+        },
+        {
+            path: "/blogs",
+            element: <Blog></Blog>
         },
         {
           path: "/all-jobs",
