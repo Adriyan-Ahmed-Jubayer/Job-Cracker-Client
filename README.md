@@ -1,8 +1,12 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 5 Features of my website :
 
-Currently, two official plugins are available:
+* Simple Jobs Preview : Users can preview the Jobs category in Home page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Responsive Design : The website will be responsive according to user's Device.
+
+* Showing Toast :  If the user wants to Login or Register, a toast is displayed on their device's interface.
+
+* Authentication : User can register and login his account through email and password and also login through Google
+
+* Safe Routes : Some routes are safe. If the user is not logged in they will not be able to access that route
