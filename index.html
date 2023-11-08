@@ -1,13 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/XpCSfxY/image-removebg-preview.png" />
-    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://i.ibb.co/XpCSfxY/image-removebg-preview.png"
+    />
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JOB Cracker</title>
   </head>
-  <body style="font-family: 'Open Sans', sans-serif;">
+  <body style="font-family: 'Open Sans', sans-serif">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -15,5 +19,14 @@
       AOS.init();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("waJ9Yf5ojORw9LwV5");
+      })();
+    </script>
   </body>
 </html>

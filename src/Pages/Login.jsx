@@ -3,6 +3,7 @@ import { BsGoogle } from "react-icons/bs"
 import { useContext } from "react";
 import { AuthContext } from "../Providers/Authentication";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
     const {LoginAccount, GoogleLogin} = useContext(AuthContext);
 
@@ -58,6 +59,9 @@ const Login = () => {
     }
     return (
         <>
+        <Helmet>
+            <title>Job Cracker | Login</title>
+        </Helmet>
             <section className="flex flex-col md:flex-row items-center justify-center min-h-screen">
                 <div className="flex-1">
                     <img className="w-full" src="https://i.ibb.co/BswVj9y/mobile-login-concept-illustration-114360-135-removebg-preview.png" alt="" />

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../Components/Home/Banner";
 import ChooseUs from "../Components/Home/ChooseUs";
 import Clients from "../Components/Home/Clients";
@@ -7,6 +8,9 @@ import Navbar from "../Shared/Navbar";
 const Home = () => {
     return (
         <>
+        <Helmet>
+            <title>Job Cracker | HOME</title>
+        </Helmet>
             <section className="container mx-auto mb-[40px] md:mb-[80px] lg:mb-[130px] mt-8 md:mt-14 lg:mt-20 xl:mt-28">
                 <Banner></Banner>
             </section>

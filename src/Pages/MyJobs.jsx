@@ -5,6 +5,7 @@ import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import { Circles } from 'react-loader-spinner'
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet-async";
 
 const MyJobs = () => {
     const { User } = useContext(AuthContext);
@@ -47,6 +48,9 @@ const MyJobs = () => {
     }
     return (
         <>
+        <Helmet>
+            <title>Job Cracker | Jobs Collection</title>
+        </Helmet>
             <div className="my-[40px] md:my-[80px] lg:my-[130px] shadow-2xl font-bold">
                 <ul className="grid grid-cols-9 place-items-center text-[12px] py-4 bg-[#E6E6E6] rounded-tr-xl rounded-tl-xl">
                     <li>Job Title</li>

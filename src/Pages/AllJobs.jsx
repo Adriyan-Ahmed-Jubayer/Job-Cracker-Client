@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Job from "../Components/Jobs/Job";
 import { Circles } from  'react-loader-spinner'
+import { Helmet } from "react-helmet-async";
 
 const AllJobs = () => {
     const [Jobs, setJobs] = useState([])
@@ -26,6 +27,9 @@ const AllJobs = () => {
     }, [searchedValue, url])
     return (
         <>
+        <Helmet>
+            <title>Job Cracker | ALL JOBS</title>
+        </Helmet>
             <section className="mb-[40px] md:mb-[80px] lg:mb-[130px]">
                 <div>
                     <form onSubmit={handleSearch}>

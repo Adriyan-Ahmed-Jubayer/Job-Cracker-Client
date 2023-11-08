@@ -10,10 +10,14 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser'
 
 const JobDetails = () => {
     const [Job, setJob] = useState({})
     const {id} = useParams()
+    const form = useRef();
     useEffect(() => {
         axios.get(`http://localhost:5000/api/v1/job/${id}`)
         .then(res => setJob(res.data))
@@ -45,6 +49,12 @@ const JobDetails = () => {
 
     const handleSubmit = (e) => {
         
+        emailjs.sendForm('service_fjwmtwy', 'template_28viznu', form.current, 'waJ9Yf5ojORw9LwV5')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
         const ApplierName = e.target.name.value;
         const ApplierEmail = e.target.email.value;
         const ApplierResume = e.target.resume.value;
@@ -83,6 +93,11 @@ const JobDetails = () => {
     }
     return (
         <>
+        <Helmet>
+            <title>
+                Job Cracker | Job Details
+            </title>
+        </Helmet>
             <section className="container mx-auto mb-[40px] md:mb-[80px] lg:mb-[130px]">
                 <div className="flex flex-col lg:flex-row items-center">
                     <div className="flex-1">
@@ -146,7 +161,7 @@ const JobDetails = () => {
             </section>
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
-                    <form onSubmit={handleSubmit} method="dialog" className="space-y-4">
+                    <form ref={form} onSubmit={handleSubmit} method="dialog" className="space-y-4">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>

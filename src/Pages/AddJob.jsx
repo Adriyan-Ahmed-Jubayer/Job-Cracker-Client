@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/Authentication";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const AddJob = () => {
     const { User } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const AddJob = () => {
     }
     return (
         <>
+        <Helmet>
+            <title>Job Cracker | ADD JOB</title>
+        </Helmet>
             <div data-aos="fade-up"
                 data-aos-anchor-placement="top-bottom" className="w-9/12 md:w-7/12 xl:w-4/12 mx-auto text-center space-y-3 lg:space-y-6 mb-5 md:mb-10 xl:mb-14">
                 <h4 className="text-sm md:text-base lg:text-lg font-bold text-design">ADD YOUR JOB OPPORTUNITY</h4>

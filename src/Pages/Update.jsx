@@ -5,6 +5,7 @@ import { AuthContext } from "../Providers/Authentication";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Update = () => {
     const [dateOfDeadline, setDateOfDeadline] = useState(null);
@@ -61,6 +62,11 @@ const Update = () => {
     }
     return (
         <>
+        <Helmet>
+            <title>
+                Job Cracker | Update Job
+            </title>
+        </Helmet>
             <div data-aos="fade-up"
                 data-aos-anchor-placement="top-bottom" className="w-9/12 md:w-7/12 xl:w-4/12 mx-auto text-center space-y-3 lg:space-y-6 mb-5 md:mb-10 xl:mb-14">
                 <h4 className="text-sm md:text-base lg:text-lg font-bold text-design">UPDATE YOUR JOB REQUIRMENTS</h4>

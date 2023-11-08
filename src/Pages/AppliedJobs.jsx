@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/Authentication";
 import { Circles } from "react-loader-spinner";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobs = () => {
     const [Jobs, setJobs] = useState([])
@@ -44,6 +45,11 @@ const AppliedJobs = () => {
     }, [selectedCategory])
     return (
         <>
+        <Helmet>
+            <title>
+                Job Cracker | Applied JOB
+            </title>
+        </Helmet>
             <section className="my-[40px] md:my-[80px] lg:my-[130px] container mx-auto">
                 <div className="flex items-center gap-3 justify-center md:justify-normal">
                     <h1>Filter By Category</h1>
