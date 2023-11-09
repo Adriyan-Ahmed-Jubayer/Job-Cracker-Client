@@ -52,7 +52,7 @@ const MyJobs = () => {
             <title>Job Cracker | Jobs Collection</title>
         </Helmet>
             <div className="my-[40px] md:my-[80px] lg:my-[130px] shadow-2xl font-bold">
-                <ul className="grid grid-cols-9 place-items-center text-[12px] py-4 bg-[#E6E6E6] rounded-tr-xl rounded-tl-xl">
+                <ul className="grid grid-cols-9 place-items-center text-[12px] py-4 bg-[#E6E6E6] dark:border-teal-400 dark:border dark:bg-slate-900 rounded-tr-xl rounded-tl-xl">
                     <li>Job Title</li>
                     <li>Posted by</li>
                     <li>Category</li>

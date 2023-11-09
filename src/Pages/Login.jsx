@@ -77,13 +77,13 @@ const Login = () => {
                         <form onSubmit={handleLogin} className="">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text dark:text-gray-300">Email</span>
                                 </label>
                                 <input type="email" name="email" placeholder="Enter Your E-mail" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text dark:text-gray-300">Password</span>
                                 </label>
                                 <input type="password" name="pass" placeholder="Enter Your Password" className="input input-bordered" required />
                                 <label className="label">

@@ -15,13 +15,13 @@ const Navbar = () => {
     ]
     return (
         <>
-            <div className="navbar my-3 md:my-4 lg:my-6">
+            <div className="navbar py-3 md:py-4 lg:py-6">
                 <div className="navbar-start">
                     <div className="dropdown xl:hidden ">
                         <label tabIndex={0} className="btn btn-ghost btn-circle">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-200 shadow-md rounded-md w-52 z-10 gap-3">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-200 dark:text-gray-100 dark:bg-slate-900 duration-700 shadow-md rounded-md w-52 z-10 gap-3">
                             {
                                 Links.map((Link, i) => <li key={i}>{Link}</li>)
                             }

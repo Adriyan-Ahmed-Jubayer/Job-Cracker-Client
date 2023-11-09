@@ -9,7 +9,7 @@ const Job = ({ job }) => {
     const { _id, Category, Banner, UserName, Title, PostDate, Deadline, SalaryRange } = job;
     return (
         <>
-            <div data-aos="fade-up" className="p-5 bg-teal-500 bg-opacity-10 hover:bg-opacity-50 hover:text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 card-notched">
+            <div data-aos="fade-up" className="p-5 bg-teal-500 dark:bg-opacity-20 bg-opacity-10 hover:bg-opacity-50 hover:text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 card-notched">
                 <div className="w-full md:w-[300px] md:h-[170px] lg:navbar-start">
                     <img className="w-full h-[200px] md:w-[300px] md:h-[170px]" src={Banner} alt="" />
                 </div>

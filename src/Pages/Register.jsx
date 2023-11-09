@@ -89,25 +89,25 @@ const Register = () => {
                         <form onSubmit={handleRegister} >
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text dark:text-gray-300">Name</span>
                                 </label>
                                 <input type="text" name="name" placeholder="Enter Your Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo</span>
+                                    <span className="label-text dark:text-gray-300">Photo</span>
                                 </label>
                                 <input type="text" name="photo" placeholder="Enter Your Photo URL" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text dark:text-gray-300">Email</span>
                                 </label>
                                 <input type="email" name="email" placeholder="Enter Your E-mail" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text dark:text-gray-300">Password</span>
                                 </label>
                                 <input type="password" name="pass" placeholder="Enter Your Password" className="input input-bordered" required />
                                 <label className="label">

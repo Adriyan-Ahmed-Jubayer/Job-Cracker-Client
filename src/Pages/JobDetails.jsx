@@ -130,7 +130,7 @@ const JobDetails = () => {
                         </div>
                         <div className="space-y-4">
                             <h1 className="text-sm md:text-base lg:text-lg font-bold"><span className="font-medium">Job Position:</span> {Title}</h1>
-                            <p className="text-[12px] leading-6 text-[#64666C] md:text-[14px] md:leading-8 lg:text-[16px] lg:leading-9"><span className="font-medium text-black">Job Description:</span> {Description}</p>
+                            <p className="text-[12px] leading-6 text-[#64666C] dark:text-gray-300 md:text-[14px] md:leading-8 lg:text-[16px] lg:leading-9"><span className="font-medium text-black dark:text-gray-100">Job Description:</span> {Description}</p>
                         </div>
                         <div className="flex items-center justify-between">
                             <div className="space-y-3">

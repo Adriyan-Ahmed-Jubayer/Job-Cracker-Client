@@ -53,7 +53,7 @@ const AppliedJobs = () => {
             <section className="my-[40px] md:my-[80px] lg:my-[130px] container mx-auto">
                 <div className="flex items-center gap-3 justify-center md:justify-normal">
                     <h1>Filter By Category</h1>
-                    <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} className="text-xs md:text-sm lg:text-base bg-teal-300 rounded-md p-3" name="Category" id="">
+                    <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} className="text-xs md:text-sm lg:text-base bg-teal-300 rounded-md p-3 dark:text-black font-bold" name="Category" id="">
                         {
                             Categories.map(Category => <option key={Category.id} value={Category.name} className="bg-teal-300">
                                 {Category.name}
@@ -63,7 +63,7 @@ const AppliedJobs = () => {
                 </div>
             </section>
             <div className="my-[40px] md:my-[80px] lg:my-[130px] shadow-2xl font-bold">
-                <ul className="grid grid-cols-4 place-items-center text-[12px] py-4 bg-[#E6E6E6] rounded-tr-xl rounded-tl-xl">
+                <ul className="grid grid-cols-4 place-items-center text-[12px] py-4 bg-[#E6E6E6] dark:bg-slate-900 dark:border-teal-400 dark:border-2 rounded-tr-xl rounded-tl-xl">
                     <li>Job Title</li>
                     <li>Applier Name</li>
                     <li>Applier Email</li>
