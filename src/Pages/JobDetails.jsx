@@ -19,9 +19,10 @@ const JobDetails = () => {
     const {id} = useParams()
     const form = useRef();
     useEffect(() => {
-        axios.get(`https://job-cracker.vercel.app/api/v1/job/${id}`)
+        axios.get(`http://localhost:5000/api/v1/job/${id}`)
         .then(res => setJob(res.data))
     }, [Job])
+
 
     const { _id, Company, CompanyLogo, Title, UserName, Category, SalaryRange, Description, PostDate, Deadline, ApplicantsNumber, Banner } = Job;
     const { User } = useContext(AuthContext);
@@ -47,21 +48,19 @@ const JobDetails = () => {
         }
     }
 
-    console.log();
     const handleSubmit = (e) => {
+        const templateParams = {
+            to_email: User?.email
+          };
         
-        emailjs.sendForm('service_fjwmtwy', 'template_28viznu', form.current, 'waJ9Yf5ojORw9LwV5')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
+        emailjs.sendForm('service_fjwmtwy', 'template_28viznu', form.current, 'waJ9Yf5ojORw9LwV5', templateParams)
+      .then((result) => {console.log(result.text)}, (error) => {console.log(error.text)});
         const ApplierName = e.target.name.value;
         const ApplierEmail = e.target.email.value;
         const ApplierResume = e.target.resume.value;
         const AppliedJob = { ...Job, ApplierName, ApplierEmail, ApplierResume };
         delete AppliedJob._id;
-        fetch('https://job-cracker.vercel.app/api/v1/application', {
+        fetch('http://localhost:5000/api/v1/application', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -72,7 +71,7 @@ const JobDetails = () => {
             .then(data => {
 
                 if (data.insertedId) {
-                    fetch(`https://job-cracker.vercel.app/api/v2/job?id=${_id}`, {
+                    fetch(`http://localhost:5000/api/v2/job?id=${_id}`, {
                         method: "PUT",
                         headers: {
                             'content-type': 'application/json'
@@ -82,7 +81,7 @@ const JobDetails = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log('Data Updated', data);
-                            if(data.modifiedCount > 0){
+                            if(data){
                                 toast.success('Your Application Submited Successfully')
                             }
                         })

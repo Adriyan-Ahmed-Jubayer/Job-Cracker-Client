@@ -13,7 +13,7 @@ const MyJobs = () => {
     const [Jobs, setJobs] = useState([]);
     useEffect(() => {
         setTimeout(() => {
-            axios.get(`https://job-cracker.vercel.app/api/v1/collection?email=${User?.email}`)
+            axios.get(`http://localhost:5000/api/v1/collection?email=${User?.email}`)
                 .then(res => setJobs(res.data))
             setLoading(false)
         }, 1000);
@@ -29,7 +29,7 @@ const MyJobs = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://job-cracker.vercel.app/api/v1/collection/${id}`, {
+                fetch(`http://localhost:5000/api/v1/collection/${id}`, {
                     method: "DELETE"
                 })
                 .then(res => res.json())
@@ -95,7 +95,7 @@ const MyJobs = () => {
                         })
                     }
                     {
-                        !Jobs.length && <div className="min-h-screen flex items-center justify-center">
+                        !Jobs.length && !loading && <div className="min-h-screen flex items-center justify-center">
                             <img className="w-full" src="https://i.ibb.co/k0S5J1q/no-data-concept-illustration-114360-616-removebg-preview.png" alt="" />
                         </div>
                     }

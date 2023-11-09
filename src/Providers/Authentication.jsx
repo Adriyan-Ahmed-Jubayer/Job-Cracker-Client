@@ -24,6 +24,7 @@ const Authentication = ({ children }) => {
 
     const LogOutAccount = () => {
         setIsLoading(true)
+
         return signOut(auth);
     }
 
@@ -37,13 +38,22 @@ const Authentication = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, userAccount => {
             setUser(userAccount)
-            setIsLoading(false)  
-            if(userAccount){
-                const userEmail = {email : userAccount.email };
-                axios.post('https://job-cracker.vercel.app/jwt', userEmail, {withCredentials: true})
-                .then(res => {
-                    console.log(res.data);
-                })
+            setIsLoading(false)
+            if (userAccount) {
+                const userEmail = userAccount.email || User.email;
+                const singInUser = { email: userEmail };
+                axios.post('http://localhost:5000/jwt', singInUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+            }
+            else {
+                const userEmail = userAccount?.email || User?.email
+                const singInUser = { email: userEmail };
+                axios.post('http://localhost:5000/logout', singInUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
             }
         });
         return () => {

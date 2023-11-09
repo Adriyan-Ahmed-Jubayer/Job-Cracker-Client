@@ -26,7 +26,7 @@ const AddJob = () => {
         const Banner = form.Banner.value;
         const Job = { Company, CompanyLogo, PosterEmail, PosterPhoto, Title, UserName, Category, SalaryRange, Description, PostDate, Deadline, ApplicantsNumber, Banner }
         console.log(Job);
-        fetch('https://job-cracker.vercel.app/api/v1/jobs', {
+        fetch('http://localhost:5000/api/v1/jobs', {
             method: "POST",
             headers: {
                 "content-type" : "application/json"

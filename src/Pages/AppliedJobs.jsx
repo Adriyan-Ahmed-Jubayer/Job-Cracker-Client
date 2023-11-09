@@ -33,10 +33,10 @@ const AppliedJobs = () => {
     ];
     const [selectedCategory, setSelectedCategory] = useState(Categories[0].name)
 
-    const url = selectedCategory == Categories[0].name ? `https://job-cracker.vercel.app/api/v1/application?email=${User.email}` : `https://job-cracker.vercel.app/api/v1/application?email=${User.email}&category=${selectedCategory}`
+    const url = selectedCategory == Categories[0].name ? `http://localhost:5000/api/v1/application?email=${User.email}` : `http://localhost:5000/api/v1/application?email=${User.email}&category=${selectedCategory}`
     useEffect(() => {
         setTimeout(() => {
-            axios.get(url)
+            axios.get(url, {withCredentials:true})
             .then(res => setJobs(res.data))
 
             setLoading(false)
