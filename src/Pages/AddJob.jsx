@@ -26,7 +26,7 @@ const AddJob = () => {
         const Banner = form.Banner.value;
         const Job = { Company, CompanyLogo, PosterEmail, PosterPhoto, Title, UserName, Category, SalaryRange, Description, PostDate, Deadline, ApplicantsNumber, Banner }
         console.log(Job);
-        fetch('http://localhost:5000/api/v1/jobs', {
+        fetch('https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v1/jobs', {
             method: "POST",
             headers: {
                 "content-type" : "application/json"
@@ -59,13 +59,13 @@ const AddJob = () => {
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Job Title</span>
                                 </label>
-                                <input type="text" placeholder="Enter Job Title ..." className="input input-bordered text-sm md:text-base" name='Title' required />
+                                <input type="text" placeholder="Enter Job Title ..." className="input input-bordered text-sm md:text-base dark:text-black " name='Title' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Job Category</span>
                                 </label>
-                                <select name="Category" className="input input-bordered text-sm md:text-base ">
+                                <select name="Category" className="input input-bordered text-sm md:text-base dark:text-black ">
                                     <option value="ONSITE">ONSITE</option>
                                     <option value="REMOTE">REMOTE</option>
                                     <option value="HYBRID">HYBRID</option>
@@ -76,13 +76,13 @@ const AddJob = () => {
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Salary Range</span>
                                 </label>
-                                <input type="text" placeholder="Enter Salary Range" name='SalaryRange' className="input input-bordered text-sm md:text-base "  required />
+                                <input type="text" placeholder="Enter Salary Range" name='SalaryRange' className="input input-bordered text-sm md:text-base dark:text-black "  required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Posting Date</span>
                                 </label>
-                                <input type="date" placeholder="Enter Job Posting Date ..." className="input input-bordered text-sm md:text-base " name='PostDate' required />
+                                <input type="date" placeholder="Enter Job Posting Date ..." className="input input-bordered text-sm md:text-base dark:text-black " name='PostDate' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -95,7 +95,7 @@ const AddJob = () => {
                                         placeholderText="Enter Job's Circular's Deadline"
                                         dateFormat="yyyy-MM-dd"
                                         name="Deadline"
-                                        className="input input-bordered text-sm md:text-base col-span-1 w-full"
+                                        className="input input-bordered text-sm md:text-base col-span-1 w-full dark:text-black "
 
                                     />
                                 </div>
@@ -104,20 +104,20 @@ const AddJob = () => {
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Applicants Number</span>
                                 </label>
-                                <input type="text" defaultValue={0} placeholder="Enter Your Job's Applicants Number ..." className="input input-bordered text-sm md:text-base " name='ApplicantsNumber' required />
+                                <input type="text" defaultValue={0} placeholder="Enter Your Job's Applicants Number ..." className="input input-bordered text-sm md:text-base dark:text-black " name='ApplicantsNumber' required />
                             </div>
                             <div className="form-control lg:col-span-3">
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold ">Banner Image</span>
                                 </label>
-                                <input type="text" placeholder="Enter Banner Image ..." className="input input-bordered text-sm md:text-base " name='Banner' required />
+                                <input type="text" placeholder="Enter Banner Image ..." className="input input-bordered text-sm md:text-base dark:text-black " name='Banner' required />
                             </div>
                             
                             <div className="form-control lg:col-span-3">
                                 <label className="label">
                                     <span className="text-xs md:text-base font-semibold">Job Description</span>
                                 </label>
-                                <textarea name="Description" className="lg:col-span-2 text-[10px] md:text-base lg:text-lg py-2 md:py-4 rounded-lg px-6" rows="8" placeholder="Try To Add Atleast 400 Character"></textarea>
+                                <textarea name="Description" className="lg:col-span-2 text-[10px] md:text-base lg:text-lg py-2 md:py-4 rounded-lg px-6 dark:text-black " rows="8" placeholder="Try To Add Atleast 400 Character"></textarea>
                             </div>
                             <button className=" lg:col-span-3 bg-gradient-to-l from-[#0FCFEC] to-[#19D3AE]  py-3 md:py-3 px-3 md:px-6 lg:px-9 text-white font-bold text-xs md:text-sm  rounded">ADD JOB</button>
                         </form>

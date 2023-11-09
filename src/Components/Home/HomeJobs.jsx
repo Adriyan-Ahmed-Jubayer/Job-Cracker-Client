@@ -31,7 +31,7 @@ const HomeJobs = () => {
     ];
     const [tabs, setTabs] = useState(Categories[0])
 
-    const url = tabs.name === Categories[0].name ? "http://localhost:5000/api/v1/jobs" : `http://localhost:5000/api/v1/jobs?category=${tabs.name}`
+    const url = tabs.name === Categories[0].name ? "https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v1/jobs" : `https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v1/jobs?category=${tabs.name}`
     useEffect(() => {
         axios.get(url, { withCredentials: true })
             .then(res => setJobs(res.data))

@@ -43,11 +43,11 @@ const Blog = () => {
                             <p className="text-[#777770] text-[14] md:text-[16px] mt-5 leading-9"><span className="text-lg font-bold text-black">Context and State: </span>Use the useContext hook to access the User object from the AuthContext.
                                 Initialize state variables using the useState hook: loading to track whether data is still being loaded, and Jobs to store the jobs fetched from the server.</p>
                             <p className="text-[#777770] text-[14] md:text-[16px] mt-5 leading-9"><span className="text-lg font-bold text-black">Fetching Jobs: </span>Use the useEffect hook to fetch jobs from the server when the component mounts.
-                                Use the axios library to make a GET request to http://localhost:5000/api/v1/collection?email=${}.
+                                Use the axios library to make a GET request to https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v1/collection?email=${}.
                                 Set a timeout to simulate loading and update the state variables accordingly.</p>
                             <p className="text-[#777770] text-[14] md:text-[16px] mt-5 leading-9"><span className="text-lg font-bold text-black">Handle Delete: </span>Define a function handleDelete that takes the id of a job as a parameter.
                                 Use the Swal library to display a confirmation dialog.
-                                If the user confirms deletion, make a DELETE request to http://localhost:5000/api/v1/collection/${}.
+                                If the user confirms deletion, make a DELETE request to https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v1/collection/${}.
                                 Display a success message if the deletion is successful.</p>
                             <p className="text-[#777770] text-[14] md:text-[16px] mt-5 leading-9"><span className="text-lg font-bold text-black">Rendering: </span>Use the Helmet component from react-helmet-async to set the document title.
                                 Render a list of jobs in a grid format with headers for job details.

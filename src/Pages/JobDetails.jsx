@@ -19,7 +19,7 @@ const JobDetails = () => {
     const {id} = useParams()
     const form = useRef();
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/v1/job/${id}`)
+        axios.get(`https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v1/job/${id}`)
         .then(res => setJob(res.data))
     }, [Job])
 
@@ -60,7 +60,7 @@ const JobDetails = () => {
         const ApplierResume = e.target.resume.value;
         const AppliedJob = { ...Job, ApplierName, ApplierEmail, ApplierResume };
         delete AppliedJob._id;
-        fetch('http://localhost:5000/api/v1/application', {
+        fetch('https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v1/application', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const JobDetails = () => {
             .then(data => {
 
                 if (data.insertedId) {
-                    fetch(`http://localhost:5000/api/v2/job?id=${_id}`, {
+                    fetch(`https://job-cracker-bkvg9bh4v-adriyan.vercel.app/api/v2/job?id=${_id}`, {
                         method: "PUT",
                         headers: {
                             'content-type': 'application/json'

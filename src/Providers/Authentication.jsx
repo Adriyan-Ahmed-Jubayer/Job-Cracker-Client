@@ -42,7 +42,7 @@ const Authentication = ({ children }) => {
             if (userAccount) {
                 const userEmail = userAccount.email || User.email;
                 const singInUser = { email: userEmail };
-                axios.post('http://localhost:5000/jwt', singInUser, { withCredentials: true })
+                axios.post('https://job-cracker-bkvg9bh4v-adriyan.vercel.app/jwt', singInUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
@@ -50,7 +50,7 @@ const Authentication = ({ children }) => {
             else {
                 const userEmail = userAccount?.email || User?.email
                 const singInUser = { email: userEmail };
-                axios.post('http://localhost:5000/logout', singInUser, { withCredentials: true })
+                axios.post('https://job-cracker-bkvg9bh4v-adriyan.vercel.app/logout', singInUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                     })
