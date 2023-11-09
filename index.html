@@ -13,7 +13,9 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </head>
-  <body style="font-family: 'Open Sans', sans-serif" class="dark:text-gray-100 dark:bg-slate-900 duration-700">
+  <body style="font-family: 'Open Sans', sans-serif" class="dark:text-gray-100 dark:bg-slate-900 duration-700 cursor-none">
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -30,5 +32,18 @@
         emailjs.init("waJ9Yf5ojORw9LwV5");
       })();
     </script>
+        <script>
+          var cursor = document.querySelector(".cursor");
+          var cursor2 = document.querySelector(".cursor2");
+          document.addEventListener("mousemove", function (e) {
+            cursor.style.cssText = cursor2.style.cssText =
+              "left:" + e.clientX + "px; top:" + e.clientY + "px;";
+          });
+    
+          document.addEventListener('mouseout', () => {
+            cursor.style.display = 'none'
+            cursor2.style.display = 'none'
+          })
+        </script>
   </body>
 </html>
